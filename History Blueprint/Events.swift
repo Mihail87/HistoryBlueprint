@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GameKit
 
 protocol EventItemQuiz {
     var name: String { get }
@@ -18,10 +19,12 @@ protocol EventsGameQuiz {
     var maxRounds: Int { get }
     var events: [Event] { get set }
     var currentRound: Int { get set }
+    var currentScore: Int { get set }
     
     init(events: [Event])
     func isGameOver() -> Bool
-    func newRound() throws -> [Event]
+    func newRound()
+    func checkRound()
 }
 
 struct Event: EventItemQuiz {
@@ -31,27 +34,42 @@ struct Event: EventItemQuiz {
 }
 
 class QuizGame: EventsGameQuiz {
-    let maxRounds: Int = 7
+    let maxRounds: Int = 3
     var currentRound: Int = 0
     var currentScore: Int = 0
     var events: [Event]
     
     required init(events: [Event]) {
-        currentRound += 1
         self.events = events
     }
     
     func isGameOver() -> Bool {
-        if currentRound < maxRounds {
+        if currentRound <= maxRounds {
             return false
         } else {
             return true
         }
     }
     
-    func newRound() throws -> [Event] {
-        // FIXME: Return 4 random events
-        return self.events
+    func newRound() {
+        // Shuffle the Events array -> O(n) complexity and O(1) additional space
+        var last = events.count - 1
+        while(last > 0)
+        {
+            let rand = GKRandomSource.sharedRandom().nextInt(upperBound: last)
+            events.swapAt(last, rand)
+            last -= 1
+        }
+        self.currentRound += 1
+    }
+    
+    func checkRound() {
+        if events[0].date < events[1].date && events[1].date < events[2].date && events[2].date < events[3].date{
+            self.currentScore += 1
+        }
+        if !isGameOver() {
+            newRound()
+        }
     }
 }
 
