@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>USS Liberty incident</key>
+	<dict>
+		<key>link</key>
+		<string>https://en.wikipedia.org/wiki/USS_Liberty_incident</string>
+		<key>date</key>
+		<date>1967-06-08T19:24:09Z</date>
+	</dict>
+	<key>Balfour Declaration</key>
+	<dict>
+		<key>link</key>
+		<string>https://en.wikipedia.org/wiki/Balfour_Declaration</string>
+		<key>date</key>
+		<date>1917-11-02T10:15:36Z</date>
+	</dict>
+	<key>The Fall of the Berlin Wall</key>
+	<dict>
+		<key>link</key>
+		<string>https://en.wikipedia.org/wiki/Berlin_Wall#Fall_of_the_Berlin_Wall</string>
+		<key>date</key>
+		<date>1989-11-09T19:25:42Z</date>
+	</dict>
+	<key>Dissolution of the Soviet Union</key>
+	<dict>
+		<key>link</key>
+		<string>https://en.wikipedia.org/wiki/Dissolution_of_the_Soviet_Union</string>
+		<key>date</key>
+		<date>1991-12-26T19:27:07Z</date>
+	</dict>
+	<key>Atomic bombing of Hiroshima</key>
+	<dict>
+		<key>link</key>
+		<string>https://en.wikipedia.org/wiki/Atomic_bombings_of_Hiroshima_and_Nagasaki</string>
+		<key>date</key>
+		<date>1945-08-06T19:28:38Z</date>
+	</dict>
+	<key>First circumnavigation - The Magellan–Elcano expedition</key>
+	<dict>
+		<key>link</key>
+		<string>https://en.wikipedia.org/wiki/Magellan%E2%80%93Elcano_circumnavigation</string>
+		<key>date</key>
+		<date>1522-09-08T19:47:08Z</date>
+	</dict>
+</dict>
+</plist>
