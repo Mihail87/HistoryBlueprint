@@ -58,68 +58,76 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Jt-bP-wJb">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Jt-bP-wJb">
                                 <rect key="frame" x="305" y="40" width="40" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="Lbj-Hz-UfV"/>
                                     <constraint firstAttribute="height" constant="100" id="upB-O6-0uI"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="down_full"/>
+                                <state key="selected" image="down_full_selected" backgroundImage="down_full_selected"/>
+                                <state key="highlighted" image="down_full_selected" backgroundImage="down_full_selected"/>
                                 <connections>
-                                    <action selector="moveLabel1_down" destination="BYZ-38-t0r" eventType="touchUpInside" id="E3q-et-ybL"/>
+                                    <action selector="moveLabel1_down" destination="BYZ-38-t0r" eventType="touchUpInside" id="yFI-ch-hka"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1V7-wi-Yak">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1V7-wi-Yak">
                                 <rect key="frame" x="305" y="210" width="40" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="AVG-o2-6Xg"/>
                                     <constraint firstAttribute="height" constant="50" id="hBI-mg-7gU"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="down_half"/>
+                                <state key="highlighted" image="down_half_selected"/>
                                 <connections>
                                     <action selector="moveLabel2_down" destination="BYZ-38-t0r" eventType="touchUpInside" id="YND-h2-o1i"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wpk-Lv-EzG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wpk-Lv-EzG">
                                 <rect key="frame" x="305" y="160" width="40" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="R4M-VM-I9b"/>
                                     <constraint firstAttribute="height" constant="50" id="wo0-pK-lV5"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="up_half"/>
+                                <state key="selected" image="up_half_selected"/>
+                                <state key="highlighted" image="up_half_selected"/>
                                 <connections>
                                     <action selector="moveLabel2_up" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qtd-Jz-sYP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahM-Lu-FZi">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahM-Lu-FZi">
                                 <rect key="frame" x="305" y="280" width="40" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="4r7-nA-BTb"/>
                                     <constraint firstAttribute="height" constant="50" id="wqU-AB-2cw"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="up_half"/>
+                                <state key="highlighted" image="up_half_selected"/>
                                 <connections>
                                     <action selector="moveLabel3_up" destination="BYZ-38-t0r" eventType="touchUpInside" id="dk8-7F-cHf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrz-wP-Ksb">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrz-wP-Ksb">
                                 <rect key="frame" x="305" y="330" width="40" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="8Bg-Fx-2cJ"/>
                                     <constraint firstAttribute="height" constant="50" id="nle-A6-nw0"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="down_half"/>
+                                <state key="highlighted" image="down_half_selected"/>
                                 <connections>
                                     <action selector="moveLabel3_down" destination="BYZ-38-t0r" eventType="touchUpInside" id="jRy-Ui-UPB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEG-EJ-i4V">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEG-EJ-i4V">
                                 <rect key="frame" x="305" y="400" width="40" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="5aY-pG-JOP"/>
                                     <constraint firstAttribute="height" constant="100" id="vpO-hw-q0t"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="up_full"/>
+                                <state key="highlighted" image="up_full_selected"/>
                                 <connections>
                                     <action selector="moveLabel4_up" destination="BYZ-38-t0r" eventType="touchUpInside" id="B0S-zO-MG3"/>
                                 </connections>
@@ -200,8 +208,12 @@
     </scenes>
     <resources>
         <image name="down_full" width="158" height="457"/>
+        <image name="down_full_selected" width="158" height="457"/>
         <image name="down_half" width="158" height="229"/>
+        <image name="down_half_selected" width="158" height="229"/>
         <image name="up_full" width="158" height="457"/>
+        <image name="up_full_selected" width="158" height="457"/>
         <image name="up_half" width="158" height="229"/>
+        <image name="up_half_selected" width="158" height="229"/>
     </resources>
 </document>

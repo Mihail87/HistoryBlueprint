@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -24,9 +25,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var eventButton3_down: UIButton!
     @IBOutlet weak var eventButton4_up: UIButton!
     
+    
+    
     var eventsGame: QuizGame
     var timer: Timer?
     var timerCounter = 60
+    var player: AVAudioPlayer?
 
     
     required init?(coder aDecoder: NSCoder) {
@@ -58,9 +62,6 @@ class ViewController: UIViewController {
             timerLabel.text = String(timerCounter)
         } else {
             checkRound()
-            if eventsGame.isGameOver() {
-                timer?.invalidate()
-            }
         }
     }
     
@@ -79,19 +80,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // for Shake gesture detection - Let iOS know which view controller is the first in the responder chain:
         self.becomeFirstResponder()
-        
+        // round cornered Labels
         configureUI(withRadius: 5)
-        startTimer()
         
-        do {
-            try eventsGame.newRound()
-            eventLabel1.text = eventsGame.events[0].name
-            eventLabel2.text = eventsGame.events[1].name
-            eventLabel3.text = eventsGame.events[2].name
-            eventLabel4.text = eventsGame.events[3].name
-        } catch let error {
-            fatalError("\(error)")
-        }
+        // start new game
+        startTimer()
+        eventsGame.newRound()
+        refreshLabels()
+        
+        eventButton1_down.setBackgroundImage(#imageLiteral(resourceName: "down_full_selected"), for: UIControlState.highlighted)
+        
     }
     
     func showAlertWith(title: String, message: String, style: UIAlertControllerStyle = .alert) {
@@ -148,12 +146,27 @@ class ViewController: UIViewController {
         eventsGame.events.swapAt(0, 1)
         refreshLabels()
     }
+    
+    func playClickSound() {
+        if let asset = NSDataAsset(name: "clickSound") {
+            do {
+                player = try AVAudioPlayer(data: asset.data, fileTypeHint: "wav")
+                player?.play()
+            } catch let error {
+                print("\(error)")
+            }
+        }
+    }
+
     @IBAction func moveLabel1_down() {
         swap_01()
+        playClickSound()
     }
     @IBAction func moveLabel2_up() {
         swap_01()
+        playClickSound()
     }
+  
     
     // Swaps events and labels for the second and third Label
     func swap_12() {
@@ -162,9 +175,11 @@ class ViewController: UIViewController {
     }
     @IBAction func moveLabel2_down() {
         swap_12()
+        playClickSound()
     }
     @IBAction func moveLabel3_up() {
         swap_12()
+        playClickSound()
     }
     
     func swap_23() {
@@ -173,10 +188,13 @@ class ViewController: UIViewController {
     }
     @IBAction func moveLabel3_down() {
         swap_23()
+        playClickSound()
     }
     @IBAction func moveLabel4_up() {
         swap_23()
+        playClickSound()
     }
+
     
 }
 
