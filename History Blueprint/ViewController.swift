@@ -26,12 +26,8 @@ class ViewController: UIViewController {
     
     var eventsGame: QuizGame
     var timer: Timer?
+    var timerCounter = 60
 
-//    if timer == nil {
-//        Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(hideNumResultLabel), userInfo: nil, repeats: false)
-//    } else {
-//        timer?.fire()
-//    }
     
     required init?(coder aDecoder: NSCoder) {
         do {
@@ -56,12 +52,36 @@ class ViewController: UIViewController {
         eventLabel4.layer.masksToBounds = true
     }
     
+    @objc func updateTimer() {
+        if timerCounter > 0 {
+            timerCounter -= 1
+            timerLabel.text = String(timerCounter)
+        } else {
+            checkRound()
+            if eventsGame.isGameOver() {
+                timer?.invalidate()
+            }
+        }
+    }
+    
+    func restartTimer() {
+        timerCounter = 60
+        timerLabel.text = String(timerCounter)
+        timer?.invalidate()
+        startTimer()
+    }
+    
+    func startTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // for Shake gesture detection - Let iOS know which view controller is the first in the responder chain:
         self.becomeFirstResponder()
         
         configureUI(withRadius: 5)
+        startTimer()
         
         do {
             try eventsGame.newRound()
@@ -84,7 +104,10 @@ class ViewController: UIViewController {
     }
     
     func dismissAlert(sender: UIAlertAction) -> Void {
-        // FIXME: restart game
+        eventsGame.newGame()
+        refreshLabels()
+        roundLabel.text = "Round 1"
+        restartTimer()
     }
     
     func refreshLabels() {
@@ -94,17 +117,23 @@ class ViewController: UIViewController {
         eventLabel4.text = eventsGame.events[3].name
     }
     
+    func checkRound() {
+        eventsGame.checkRound()
+        refreshLabels()
+        if eventsGame.isGameOver() {
+            showAlertWith(title: "Game over", message: "You've won \(eventsGame.currentScore) rounds")
+            timer?.invalidate()
+        } else {
+            roundLabel.text = "Round \(eventsGame.currentRound)"
+            restartTimer()
+        }
+    }
+    
     // for Shake gesture detection
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if let newEvent = event {
             if(newEvent.subtype == UIEventSubtype.motionShake) {
-                eventsGame.checkRound()
-                refreshLabels()
-                if eventsGame.isGameOver() {
-                    showAlertWith(title: "Game over", message: "You've won \(eventsGame.currentScore) rounds")
-                } else {
-                    roundLabel.text = "Round \(eventsGame.currentRound)"
-                }
+                checkRound()
             }
         }
     }

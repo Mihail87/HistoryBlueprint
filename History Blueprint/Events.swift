@@ -71,6 +71,13 @@ class QuizGame: EventsGameQuiz {
             newRound()
         }
     }
+    
+    func newGame() {
+        self.currentRound = 0
+        self.currentScore = 0
+        
+        newRound()
+    }
 }
 
 enum EventsError: Error {
